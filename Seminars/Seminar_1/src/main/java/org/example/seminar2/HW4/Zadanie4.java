@@ -1,6 +1,7 @@
 package org.example.seminar2.HW4;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 /*
 
@@ -27,16 +28,22 @@ public class Zadanie4 {
                 {'9', '6', '1', '5', '3', '7', '2', '8', '4'},
                 {'2', '8', '7', '4', '1', '9', '6', '3', '5'},
                 {'3', '4', '5', '2', '8', '6', '1', '7', '9'}};
-        System.out.println("с точками = " + validSudoku(board));
-        System.out.println("решенный = " + validSudoku(board2));
+        System.out.println("с точками = " + checkCorrectFilling(board));
+        System.out.println("Доска заполненна корректно(численно) = " + isValidSudokuDesk(board2));
+        System.out.println("Доска заполненна правильно(матем.) = " + checkCorrectFilling(board2));
     }
 
-    public static boolean validSudoku(char [][] array){
+    /**
+     * Проверяет корректность заполнения доски судоку
+     * через подсчет введенных значений в строках, колонках и блоках
+     * @param array массивы с данными доски судоку
+     * @return true если доска заполненна корректно, иначе false
+     */
+    public static boolean checkCorrectFilling(char [][] array){
         int [] colomsArr = new int[9];  // Массив для хранения данных в колонках
         int [] rowsArr = new int[9];  // Массив для хранения данных строках
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-                if(49 < array[i][j] && array[i][j] > 57) return false; // проверям, что-бу судоку был заполнен
                 colomsArr[j] = Character.digit(array[i][j], 10);  // в эталонный массив заносим значения колонок судоку
                 rowsArr[j] = Character.digit(array[j][i], 10); // в эталонный массив заносим значения строк судоку
             }
@@ -61,5 +68,43 @@ public class Zadanie4 {
             if (Arrays.stream(ints).sum() != 45) return false;
         }
         return true;
+    }
+
+    /**
+     * Проверяет доску судоку на валидность
+     * @param arr массивы с данными доски судоку
+     * @return true если доска валидна, иначе false
+     */
+    public static boolean isValidSudokuDesk(char[][] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            HashSet<Character> rowSet = new HashSet<>();  // Множество для строк
+            HashSet<Character> columnsSet = new HashSet<>();  // Множество для колонок
+            for (int j = 0; j < arr[i].length; j++) {  // Перебираем доску судоку
+                char symbol = arr[i][j];  // Получаем символ колонки судоку
+                if (rowSet.contains(symbol)) return false;  // Если полученный элемент есть в множестве, то false
+                if (symbol != '.') rowSet.add(symbol); // Добавляем символ в множество для дальнейших проверок
+                symbol = arr[j][i];  // Получаем сивол строки судоку
+                if (columnsSet.contains(symbol)) return false;  // Если полученный элемент есть в множестве, то false
+                if (symbol != '.') columnsSet.add(symbol); // Добавляем символ в множество для дальнейших проверок
+            }
+        }
+        int row = 0; // счетчик для движения по строкам
+        int column = 0; // счетчик для движения по колонкам
+        for (int i = 0; i < 9; i++) {  // Перебираем блоки доски судоку
+            HashSet<Character> blockSet = new HashSet<>(); // Создаем пустое множество для хранения данных блока 3*3
+            for (int j = row; j < row + 3; j++) { // Перебираем строку блока
+                for (int k = column; k < column + 3; k++) { // Перебираем ячейки блока
+                    char symbol = arr[j][k]; // Получаем символ блока
+                    if (blockSet.contains(symbol)) return false; // Если символ блока есть в множестве то false
+                    if (symbol != '.') blockSet.add(symbol); // Добавляем  символ в множество для дальнейших проверок
+                }
+            }
+            column += 3; // Увеличиваем счетчик колонок на 3 для перехода к следующему блоку
+            if (column == 9) { // Если счетчик == 9
+                column = 0; // обнуляем счетчик колонок
+                row += 3; // и переходим к следующим строкам
+            }
+        }
+        return true; // Если все проверки прошли то возвращаем true
     }
 }
