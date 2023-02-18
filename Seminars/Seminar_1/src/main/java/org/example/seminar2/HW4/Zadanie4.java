@@ -3,8 +3,8 @@ package org.example.seminar2.HW4;
 import java.util.Arrays;
 import java.util.HashSet;
 
-/*
-
+/**
+ * Проверить доску суддоку на валидность и корректность заполнения
  */
 public class Zadanie4 {
     public static void main(String[] args) {
