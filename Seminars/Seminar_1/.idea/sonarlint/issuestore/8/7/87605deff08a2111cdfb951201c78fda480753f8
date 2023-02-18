@@ -1,0 +1,11 @@
+
+)
+java:S1700"Rename field "item"(õ·ß¢
+—
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Çµí‘
+>
+java:S1068"(Remove this unused "item" private field.(õ·ß¢
+E
+java:S1068"/Remove this unused "countryName" private field.(ÇäıÎ
+>
+java:S1068")Remove this unused "value" private field.(ÉŠH

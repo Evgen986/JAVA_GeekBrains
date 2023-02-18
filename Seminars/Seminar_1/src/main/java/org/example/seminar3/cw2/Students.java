@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @Data
@@ -11,5 +12,5 @@ public class Students {
     private String surName;
     private Integer numberGroup;
     private Integer sizeGrant;
-    private List <Integer> estimates;
+    private List<Integer> estimates;
 }

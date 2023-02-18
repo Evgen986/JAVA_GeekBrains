@@ -34,12 +34,6 @@ public class Main {
             }
             }
         }
-
-
-
-
-
-
     public static boolean strSudentEnd(String surName, String findStr){
         int charCount = surName.length()-findStr.length();
         if (surName.substring(charCount).equals(findStr)) return true;
