@@ -5,8 +5,6 @@ d
 4src/main/java/org/example/seminar1/HW1/Zadanie1.java,0\a\0a789f01115b23e87252c1f03ff120d4559a7899
 d
 4src/main/java/org/example/seminar1/HW2/Zadanie2.java,b\1\b144fab6250fe4402da2565ac7922136f1b91e30
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 `
 0src/main/java/org/example/seminar3/cw1/Item.java,8\7\87605deff08a2111cdfb951201c78fda480753f8
 `
