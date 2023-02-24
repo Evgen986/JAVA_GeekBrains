@@ -1,4 +1,4 @@
-package org.example.seminar5.HW3;
+package org.example.seminar5.CW3;
 
 import java.util.HashMap;
 import java.util.Map;

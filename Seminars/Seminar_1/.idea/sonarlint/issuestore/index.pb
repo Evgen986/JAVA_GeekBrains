@@ -45,3 +45,7 @@ _
 0src/main/java/org/example/seminar3/HW3/Main.java,5\8\58859393bb962bdbd632aea129e4fdfa8968ffd3
 `
 0src/main/java/org/example/seminar3/HW2/Main.java,9\8\989b356c370ee4ead8869013a44c9ce79c4a4ea8
+`
+0src/main/java/org/example/seminar5/HW1/Main.java,f\7\f7957fea0013bdcc0a40ec69466a20bae590157f
+`
+0src/main/java/org/example/seminar5/HW2/Main.java,a\8\a858f4762b3041e518b584c8952ac4a6ede7f4ab
