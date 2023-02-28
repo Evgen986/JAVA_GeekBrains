@@ -55,3 +55,9 @@ _
 0src/main/java/org/example/seminar4/cw4/main.java,4\1\4195f2836ab09264a4b33be077b20d07124fb38f
 a
 1src/main/java/org/example/seminar4/cw1/Main2.java,b\d\bdeb912b913b27dcca72398a4f90bd32a9a4f68e
+`
+0src/main/java/org/example/seminar6/HW1/Main.java,2\2\2219bf329808f4c15493023fbfdd4759818f480c
+b
+2src/main/java/org/example/seminar6/HW1/Laptop.java,c\9\c9b08f8c69fe218b8e3cbad239a4c2f14c984f26
+d
+4src/main/java/org/example/seminar6/HW1/DataBase.java,7\6\76be7064f6402ca6c652125107804d2c03893bfc

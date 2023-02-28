@@ -5,6 +5,9 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
+/**
+ * Класс объекта ноутбук
+ */
 
 @Data
 @AllArgsConstructor
@@ -19,17 +22,17 @@ public class Laptop {
     private String processorManufacturer;
     private String processorModel;
     private Integer ram;
-    private String typeOfGraphicsAccelerator; // Проверить тип данных
+    private String typeOfGraphicsAccelerator;
     private String builtInVideoCardModel;
     private String discreteGraphicsCardModel;
     private Integer videoMemorySize;
-    private String storageType; // Проверить тип данных
+    private String storageType;
     private Integer ssdVolume;
     private Integer hddVolume;
-    private String laptopType; // Проверить тип данных
+    private String laptopType;
     private String color;
     private BigDecimal price;
-//    private Integer price;
+
 
     public void setPrice(BigDecimal price) {
         if (price.compareTo(MIN_PRICE) <= 0){
@@ -47,14 +50,14 @@ public class Laptop {
                 "ОС = " + operatingSystem + '\n' +
                 "Производитель процессора = " + processorManufacturer + '\n' +
                 "Модель процессора = " + processorModel + '\n' +
-                "ОЗУ = " + ram + '\n' +
+                "ОЗУ = " + ram + "Гб" + '\n' +
                 "Тип графики = " + typeOfGraphicsAccelerator + '\n' +
                 "Встроенная графика = " + builtInVideoCardModel + '\n' +
                 "Дискретная графика = " + discreteGraphicsCardModel + '\n' +
-                "Объем видеопамяти = " + videoMemorySize + '\n' +
+                "Объем видеопамяти = " + videoMemorySize + "Гб" + '\n' +
                 "Хранение данных = " + storageType + '\n' +
-                "Объем SSD = " + ssdVolume + '\n' +
-                "Объем HDD = " + hddVolume + '\n' +
+                "Объем SSD = " + ssdVolume + "Гб" + '\n' +
+                "Объем HDD = " + hddVolume + "Гб" + '\n' +
                 "Тип ноутбука = " + laptopType + '\n' +
                 "Цвет = " + color + '\n' +
                 "Цена = " + price + '\n';

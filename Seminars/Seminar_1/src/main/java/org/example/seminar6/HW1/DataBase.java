@@ -3,50 +3,14 @@ package org.example.seminar6.HW1;
 import java.math.BigDecimal;
 import java.util.*;
 
+/**
+ * Класс хранящий множество объектов и обрабатывающий поисковые запросы
+ */
 public class DataBase {
-//    Map<Integer, String> TYPE_OF_GRAPHICS = new HashMap<>() {{
-//        TYPE_OF_GRAPHICS.put(1, "Discrete");
-//        TYPE_OF_GRAPHICS.put(2, "BuiltIn");
-//        TYPE_OF_GRAPHICS.put(3, "Discrete/BuiltIn");
-//    }};
-//    Map<Integer, String> STORAGE_TYPE = new HashMap<>() {{
-//        TYPE_OF_GRAPHICS.put(1, "HDD");
-//        TYPE_OF_GRAPHICS.put(2, "SSD");
-//        TYPE_OF_GRAPHICS.put(3, "HDD/SSD");
-//    }};
-//    Map<Integer, String> LAPTOP_TYPE = new HashMap<>() {{
-//        TYPE_OF_GRAPHICS.put(1, "Game");
-//        TYPE_OF_GRAPHICS.put(2, "Office");
-//        TYPE_OF_GRAPHICS.put(3, "Hybrid");
-//    }};
-//
-//
-//    Laptop lap1 = new Laptop("Lenovo", "Legion 5 PRO", 16.0, 2021,
-//            "Windows", "AMD", "Ryzen 5 5600H", 16,
-//            TYPE_OF_GRAPHICS.get(3), "-", "Nvidia RTX 3060",
-//            6, STORAGE_TYPE.get(2), 512, 0,
-//            LAPTOP_TYPE.get(1), "Gray", new BigDecimal(1000));
-//    Laptop lap2 = new Laptop("Asus", "VivoBook", 15.6, 2021,
-//            "NoOS", "Intel", "Core i3-1115G4", 8,
-//            TYPE_OF_GRAPHICS.get(2), "Intel UHD Graphics", "-",
-//            0, STORAGE_TYPE.get(2), 512, 0,
-//            LAPTOP_TYPE.get(3), "Blue", new BigDecimal(500));
-//    Laptop lap3 = new Laptop("MSI", "Modern 15", 15.6, 2022,
-//            "Windows", "Intel", "Core i3-1215U", 8,
-//            TYPE_OF_GRAPHICS.get(2), "Intel UHD Graphics", "-",
-//            0, STORAGE_TYPE.get(2), 512, 0,
-//            LAPTOP_TYPE.get(3), "Black", new BigDecimal(700));
-//    Laptop lap4 = new Laptop("HP", "255", 15.6, 2020,
-//            "NoOS", "AMD", "Athlon Gold 3150U", 8,
-//            TYPE_OF_GRAPHICS.get(2), "AMD Radeon Graphics", "-",
-//            0, STORAGE_TYPE.get(1), 0, 1000,
-//            LAPTOP_TYPE.get(2), "Silver", new BigDecimal(300));
-
-
     Laptop lap1 = new Laptop("Lenovo", "Legion 5 PRO", 16.0, 2021,
             "Windows", "AMD", "Ryzen 5 5600H", 16,
-            "Discrete/BuiltIn", "-", "Nvidia RTX 3060",
-            6, "SSD", 512, 0,
+            "Discrete/BuiltIn", "AMD Radeon Graphics",
+            "Nvidia RTX 3060", 6, "SSD", 512, 0,
             "Game", "Gray", new BigDecimal(1000));
     Laptop lap2 = new Laptop("Asus", "VivoBook", 15.6, 2021,
             "NoOS", "Intel", "Core i3-1115G4", 8,
@@ -63,11 +27,11 @@ public class DataBase {
             "BuiltIn", "AMD Radeon Graphics", "-",
             0, "HDD", 0, 1000,
             "Office", "Silver", new BigDecimal(300));
-    public ArrayList<Laptop> allLaptops = new ArrayList<>(Arrays.asList(lap1, lap2, lap3, lap4));
+    public List<Laptop> allLaptops = new ArrayList<>(Arrays.asList(lap1, lap2, lap3, lap4));
 
 
     /**
-     * Предлагает пользователю список для поиска с выбором числового значения
+     * Предлагает пользователю список для поиска с выбором числового значения (меню поисковика)
      * @param mapList лист для выбора
      * @return выбор пользователя с типом int
      */
@@ -88,8 +52,10 @@ public class DataBase {
         }
         return choice;
     }
+
     /**
-     *
+     * Работа с множеством объектов
+     * @param num выбор поользователя в меню
      */
     public void filterList(Integer num){
         int count = 1;
@@ -170,12 +136,12 @@ public class DataBase {
                 System.out.println("Будет показан ноутбук с минимально близкой ценой!");
                 int sum = 0;
                 Scanner sc = new Scanner(System.in);
-                System.out.print("Введите цифру: ");
+                System.out.print("Введите сумму: ");
                 while (sum <= 0) {
                     if (sc.hasNextInt()) sum = sc.nextInt();
                     if (sum <= 0) {
                         System.out.println("Не корректный ввод!");
-                        System.out.print("Введите цифру: ");
+                        System.out.print("Введите сумму: ");
                         sc.nextLine();
                     }
                 }
@@ -183,10 +149,11 @@ public class DataBase {
                 for (Laptop el: allLaptops) {
                     priceSet.add(el.getPrice());
                 }
-                System.out.println("Sum в decimal = " + BigDecimal.valueOf(sum));
-                System.out.println("нахождение во множестве = " + priceSet.floor(BigDecimal.valueOf(sum)));
+                BigDecimal find = priceSet.floor(BigDecimal.valueOf(sum));
+                if (find == null) find = priceSet.ceiling(BigDecimal.valueOf(sum));
+
                 for (Laptop el: allLaptops) {
-                    if (el.getPrice().equals(priceSet.floor(BigDecimal.valueOf(sum)))){
+                    if (el.getPrice().compareTo(find) == 0){
                         System.out.println(el);
                     }
                 }
