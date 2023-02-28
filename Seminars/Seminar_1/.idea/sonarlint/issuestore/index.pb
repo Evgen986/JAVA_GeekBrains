@@ -49,3 +49,9 @@ _
 0src/main/java/org/example/seminar5/HW1/Main.java,f\7\f7957fea0013bdcc0a40ec69466a20bae590157f
 `
 0src/main/java/org/example/seminar5/HW2/Main.java,a\8\a858f4762b3041e518b584c8952ac4a6ede7f4ab
+`
+0src/main/java/org/example/seminar3/cw1/Main.java,c\5\c55d99fbe59fd8a3c177d4adcfbcf071a7d32568
+`
+0src/main/java/org/example/seminar4/cw4/main.java,4\1\4195f2836ab09264a4b33be077b20d07124fb38f
+a
+1src/main/java/org/example/seminar4/cw1/Main2.java,b\d\bdeb912b913b27dcca72398a4f90bd32a9a4f68e

@@ -55,4 +55,3 @@ public class Main {
         return countWordMap.get(findWord);
     }
 }
-
